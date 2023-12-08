@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  python:
+    container_name: python
+    build: ./src
+    ports:
+      - 8003:8003
+    working_dir: /app
+    volumes: 
+      - ./src:/app/
+    command: nodemon --exec python main.py --signal SIGTERM --legacy-watch --ext .py
